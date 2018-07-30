@@ -36,16 +36,18 @@ Player.prototype.update = function update() {
 	
 };
 
+// Method to render player's figure
 Player.prototype.render = function render() {
-	
+	ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
 
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 const allEnemies = [];
-// Place the player object in a variable called player
-const player = new Player(100, 100);
+
+// Variable to place the player object in a starting position
+const player = new Player(200, 400);
 
 
 // This listens for key presses and sends the keys to your
