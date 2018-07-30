@@ -42,12 +42,33 @@ Player.prototype.render = function render() {
 };
 
 
+/* 
+* Method to control player's figure by keyboard, within game field
+* @param {string} pressedKey - name of pressed key, defined in allowedKeys array
+*/
+Player.prototype.handleInput = function(pressedKey) {
+	//Statements to check pressed key and adequate
+	// to player's moving direction, "game field" borders
+	// In effect - to change proper x,y coordinates
+	if (pressedKey === "left" && this.x > 0) {
+		this.x -= 101;
+	} else if (pressedKey === "up" && this.y > 0) {
+		this.y -= 83;
+	} else if (pressedKey === "right" && this.x < 400) {
+		this.x += 101;
+	} else if (pressedKey === "down" && this.y < 400) {
+		this.y += 83;
+	} else	{
+		
+	}
+};
+
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 const allEnemies = [];
 
 // Variable to place the player object in a starting position
-const player = new Player(200, 400);
+const player = new Player(202, 400);
 
 
 // This listens for key presses and sends the keys to your
@@ -59,6 +80,7 @@ document.addEventListener('keyup', function(e) {
         39: 'right',
         40: 'down'
     };
+	console.log(typeof allowedKeys[e.keyCode]);
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
