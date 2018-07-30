@@ -1,5 +1,9 @@
 /**
 * Constructor function of Enemy object
+* @param {number} x - position on x-axis
+* @param {number} y - position on y-axis
+* @param {number} speed - random speed 
+* @param {number} startPos - random start position on x-axis
 */
 function Enemy(x, y, startPos, speed) {
     // properties to determine enemy x-y coordinates
@@ -32,7 +36,6 @@ Enemy.prototype.update = function(dt) {
 		this.x = this.startPos;
 		this.speed = (Math.random() * (250 - 75) + 75);
 	}
-	
 };
 
 // Draw the enemy on the screen, required method for game
