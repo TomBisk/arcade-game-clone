@@ -21,9 +21,10 @@ Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-// Now write your own player class
-// This class requires an update(), render() and
-// a handleInput() method.
+
+/**
+* Constructor function of Player object 
+*/
 function Player(x, y) {
 	// properties to determine player's x-y coordinates  
 	this.x = x;
@@ -32,17 +33,21 @@ function Player(x, y) {
 	this.sprite = "images/char-boy.png";
 };
 
+/**
+*
+*/
 Player.prototype.update = function update() {
 	
 };
 
-// Method to render player's figure
-Player.prototype.render = function render() {
+/**
+* Method to draw player's figure on the screen
+*/
+Player.prototype.render = function() {
 	ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
 
-
-/* 
+/** 
 * Method to control player's figure by keyboard, within game field
 * @param {string} pressedKey - name of pressed key, defined in allowedKeys array
 */
@@ -63,13 +68,13 @@ Player.prototype.handleInput = function(pressedKey) {
 	}
 };
 
+
 // Now instantiate your objects.
 // Place all enemy objects in an array called allEnemies
 const allEnemies = [];
 
 // Variable to place the player object in a starting position
 const player = new Player(202, 400);
-
 
 // This listens for key presses and sends the keys to your
 // Player.handleInput() method. You don't need to modify this.
