@@ -24,10 +24,12 @@ Enemy.prototype.render = function() {
 // Now write your own player class
 // This class requires an update(), render() and
 // a handleInput() method.
-function Player() {
-	
-	//define player's figure image
-	this.player = "img/char-boy.png";
+function Player(x, y) {
+	// properties to determine player's x-y coordinates  
+	this.x = x;
+	this.y = y;
+	//property to specify player's figure image
+	this.sprite = "images/char-boy.png";
 };
 
 Player.prototype.update = function update() {
@@ -43,7 +45,7 @@ Player.prototype.render = function render() {
 // Place all enemy objects in an array called allEnemies
 const allEnemies = [];
 // Place the player object in a variable called player
-const player = new Player();
+const player = new Player(100, 100);
 
 
 // This listens for key presses and sends the keys to your
