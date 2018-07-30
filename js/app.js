@@ -1,10 +1,11 @@
-// Enemies our player must avoid
-var Enemy = function() {
-    // Variables applied to each of our instances go here,
-    // we've provided one for you to get started
-
-    // The image/sprite for our enemies, this uses
-    // a helper we've provided to easily load images
+/**
+* Constructor function of Enemy object
+*/
+function Enemy(x, y) {
+    // properties to determine enemy x-y coordinates
+	this.x = x;
+	this.y = y;
+   	//property to specify enemy figure image
     this.sprite = 'images/enemy-bug.png';
 };
 
@@ -68,10 +69,11 @@ Player.prototype.handleInput = function(pressedKey) {
 	}
 };
 
-
-// Now instantiate your objects.
-// Place all enemy objects in an array called allEnemies
-const allEnemies = [];
+// Variable to place the enemy objects in starting positions
+const allEnemies = [ new Enemy(-6, 63),
+				     new Enemy(-6, 146),
+				     new Enemy(-6, 229),
+				     new Enemy(-6, 312)];
 
 // Variable to place the player object in a starting position
 const player = new Player(202, 400);
