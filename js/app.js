@@ -1,20 +1,38 @@
 /**
 * Constructor function of Enemy object
 */
-function Enemy(x, y) {
+function Enemy(x, y, startPos, speed) {
     // properties to determine enemy x-y coordinates
 	this.x = x;
 	this.y = y;
+	
+	// property to set random speed parameter between 75 and < 250
+	this.speed = (Math.random() * (250 - 75) + 75);
+	
+	// property to set random x-axis start position between > -350 and -100
+	this.startPos = (Math.random() * (-350 + 100) - 100);
+	
    	//property to specify enemy figure image
     this.sprite = 'images/enemy-bug.png';
 };
 
-// Update the enemy's position, required method for game
-// Parameter: dt, a time delta between ticks
+/**
+* Method to update enemy's position
+* @param {number} dt - a time delta between ticks, to multiply
+* every movement which will ensure the game runs at the same speed for
+* all computers
+*/
 Enemy.prototype.update = function(dt) {
-    // You should multiply any movement by the dt parameter
-    // which will ensure the game runs at the same speed for
-    // all computers.
+	// Statement to update enemy position
+	if (this.x < 510) {
+		this.x += this.speed * dt;
+	// Statement for enemies beyond the game-field
+	//to set new random start position and new random speed
+	} else {
+		this.x = this.startPos;
+		this.speed = (Math.random() * (250 - 75) + 75);
+	}
+	
 };
 
 // Draw the enemy on the screen, required method for game
@@ -70,10 +88,10 @@ Player.prototype.handleInput = function(pressedKey) {
 };
 
 // Variable to place the enemy objects in starting positions
-const allEnemies = [ new Enemy(-6, 63),
-				     new Enemy(-6, 146),
-				     new Enemy(-6, 229),
-				     new Enemy(-6, 312)];
+const allEnemies = [ new Enemy(this.startPos, 63, this.speed),
+				     new Enemy(this.startPos, 146, this.speed),
+				     new Enemy(this.startPos, 229, this.speed),
+				     new Enemy(this.startPos, 312, this.speed)];
 
 // Variable to place the player object in a starting position
 const player = new Player(202, 400);
