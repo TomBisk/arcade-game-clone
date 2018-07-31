@@ -44,8 +44,8 @@ Enemy.prototype.update = function(dt) {
 		this.x + 80 > player.x &&  
 		// and if the enemy is not behind player (65 = player's width)
 		this.x < player.x + 65) {
-			// then it is collision and reset player's position
-			player.resetPos();
+			// then it is collision and restart player's position, stage and character
+			restart();
 	}
 };
 
@@ -72,15 +72,23 @@ function Player(x, y) {
 	// properties to determine player's x-y coordinates  
 	this.x = x;
 	this.y = y;
-	//property to specify player's figure image
-	this.sprite = "images/char-boy.png";
+	//property to specify player's stage
+	this.stage = 0;
+	//property to store all available characters
+	this.playerChar = ["images/char-boy.png",
+		"images/char-cat-girl.png",
+		"images/char-horn-girl.png",
+		"images/char-pink-girl.png",
+		"images/char-princess-girl.png"]
+	// property to specify player's character
+	this.sprite = "images/char-boy.png"
 };
 
 /**
 *
 */
 Player.prototype.update = function update() {
-	
+
 };
 
 /**
@@ -106,7 +114,14 @@ Player.prototype.handleInput = function(pressedKey) {
 		// If true then reset player's position with time delay
 		if (this.y < 0) {
 			setTimeout(() => {
-				modalWin();
+				showStage();
+				player.stage++; //increment stage counter
+				//Statement to check current stage and show proper popup
+				if (player.stage > 4) {
+					modalEnd();
+				} else {
+					modalWin();
+				}
 			}, 300);
 		}
 	} else if (pressedKey === "right" && this.x < 400) {
@@ -140,7 +155,6 @@ document.addEventListener('keyup', function(e) {
     player.handleInput(allowedKeys[e.keyCode]);
 });
 
-
 /**
 * Function shows popup when player reaches the water
 */
@@ -150,19 +164,46 @@ function modalWin() {
 }
 
 /**
+* Function shows popup when player score all stages
+*/
+function modalEnd() {
+	const href = "#modal-end";
+	window.open(href, "_self");
+}
+
+/**
 * Function closes win-popup and reset player's position to start/continue the game
 */
 function contGame() {
-	window.open("#close", "_self");
-	player.resetPos();	
+	window.open("#close", "_self");// to close popup
+	player.sprite = player.playerChar[player.stage];//to update player character
+	player.resetPos();// to reset player position
 }
 
 /**
 * Function closes start-popup
 */
-
 function startGame() {
 	window.open("#close", "_self");
+}
+
+/**
+* Function to restart game after collision
+* It resets a stage counter, player's character and position
+*/
+function restart() {
+	player.stage = 0; // reset stage counter
+	player.sprite = player.playerChar[player.stage];// reset player character
+	player.resetPos(); //reset player position
+	window.open("#close", "_self"); // close popup
+}
+
+/**
+* Function to show current stage number in popup
+*/
+function showStage() {
+	const showStage = document.getElementById("stage");
+	showStage.innerText = player.stage + 1;
 }
 
 // Event listener for continue button, to call contGame()
@@ -172,3 +213,7 @@ contButton.addEventListener("click", contGame);
 // Event listener for start-game button, to call startGame()
 const startButton = document.getElementById("start-game");
 startButton.addEventListener("click", startGame);
+
+// Event listener for start-game button, to call startGame()
+const againButton = document.getElementById("restart");
+againButton.addEventListener("click", restart);
