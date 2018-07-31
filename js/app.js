@@ -45,11 +45,17 @@ Enemy.prototype.update = function(dt) {
 		// and if the enemy is not behind player (65 = player's width)
 		this.x < player.x + 65) {
 			// then it is collision and reset player's position
-			player.x = 202;
-			player.y = 400;
+			player.resetPos();
 	}
 };
 
+/**
+* Method to reset player's position
+*/
+Player.prototype.resetPos = function() {
+			this.x = 202;
+			this.y = 400;	
+}
 	
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
@@ -94,6 +100,13 @@ Player.prototype.handleInput = function(pressedKey) {
 		this.x -= 101;
 	} else if (pressedKey === "up" && this.y > 0) {
 		this.y -= 83;
+		// Statement which check if water is reached
+		// If true then reset player's position with time delay
+		if (this.y < 0) {
+			setTimeout(() => {
+				this.resetPos();
+			}, 300);
+		}
 	} else if (pressedKey === "right" && this.x < 400) {
 		this.x += 101;
 	} else if (pressedKey === "down" && this.y < 400) {
