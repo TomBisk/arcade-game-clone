@@ -1,6 +1,21 @@
-frontend-nanodegree-arcade-game
-===============================
+# Classic Arcade Game Clone
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+## Udacity Front-End Nanodegree Program project [4/8] (July 2018)
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+* Project based on art assets and provided game engine - [source repository](https://github.com/udacity/frontend-nanodegree-arcade-game)
+
+### How to play
+* open [The Cockroach Invasion](https://tombisk.github.io/arcade-game-clone) and start the game,
+* use the arrow keys to move the player figure,
+* avoid the cockroaches and follow the water
+* if You made it - play next stage with new player's character
+* if not - try again
+---
+
+### Game behavior
+
+* The Cockroaches are moving with random^ speed, from random^ start positions (^ random in a certain range)
+* The Player starts in starting position
+* If player's figure collides with cockroach - the game restarts
+* If Player reaches the water - starts next stage with new character
+* If Player passes ale stages - the game is over and player can plays again
