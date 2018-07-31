@@ -36,7 +36,21 @@ Enemy.prototype.update = function(dt) {
 		this.x = this.startPos;
 		this.speed = (Math.random() * (250 - 75) + 75);
 	}
+	
+	//Statements to check collision:
+	    //if the enemy and player are on the same line
+	if (this.y + 5 === player.y &&
+	    // and if the enemy (80 = his length) collides with player from the front
+		this.x + 80 > player.x &&  
+		// and if the enemy is not behind player (65 = player's width)
+		this.x < player.x + 65) {
+			// then it is collision
+			alert("collision");
+	}
 };
+
+	
+
 
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
