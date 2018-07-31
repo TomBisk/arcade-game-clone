@@ -40,13 +40,13 @@ body {
 }
 
 .modal-content h1 {
-	margin-bottom: 1.5rem;
-	font-size: 2.5rem;
+	margin-bottom: 2rem;
+	font-size: 3rem;
 }
 
 .modal-content h2 {
 	margin-bottom: 1.5rem;
-	font-size: 2rem;
+	font-size: 2.5rem;
 }
 
 .modal-content p {
@@ -54,13 +54,9 @@ body {
 	font-size: 1.8rem;
 }
 
-.modal-content span {
-	font-size: 2rem;
-}
-
 .modal-button {
 	display: block;
-	margin: 1rem auto 0;
+	margin: 1.5rem auto ;
 	border: 1px solid #000;
 	border-radius: 2px;
 	padding: 7px 15px;
@@ -71,4 +67,10 @@ body {
 .modal-button:hover {
 	background-color: #2f982f;
 	color: #fff;
+}
+
+ul { 
+	margin-right: 2rem;
+	font-size: 1.5rem;
+	list-style: none;
 }

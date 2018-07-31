@@ -149,9 +149,17 @@ function modalWin() {
 
 function contGame() {
 	window.open("#close", "_self"); // to close popup
-	player.resetPos();
-	
+	player.resetPos();	
 }
+
+function startGame() {
+	window.open("#close", "_self"); // to close popup
+}
+
 // Event listener for continue button, to call continue()
 const contButton = document.getElementById("continue");
 contButton.addEventListener("click", contGame);
+
+// Event listener for start-game button, to call startGame()
+const startButton = document.getElementById("start-game");
+startButton.addEventListener("click", startGame);

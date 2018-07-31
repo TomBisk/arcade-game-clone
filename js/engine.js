@@ -161,7 +161,12 @@ var Engine = (function(global) {
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
-        // noop
+        (function modalStart() {
+  			let href = "#modal-start";
+  			window.open(href, "_self");
+		}
+		)();
+
     }
 
     /* Go ahead and load all of the images we know we're going to need to
