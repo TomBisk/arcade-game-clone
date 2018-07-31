@@ -18,4 +18,4 @@
 * The Player starts in starting position
 * If player's figure collides with cockroach - the game restarts
 * If Player reaches the water - starts next stage with new character
-* If Player passes ale stages - the game is over and player can plays again
+* If Player passes all stages - the game is over and player can plays again
