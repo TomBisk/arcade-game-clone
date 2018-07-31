@@ -10,11 +10,11 @@ function Enemy(x, y, startPos, speed) {
 	this.x = x;
 	this.y = y;
 	
-	// property to set random speed parameter between 75 and < 250
-	this.speed = (Math.random() * (250 - 75) + 75);
+	// property to set random speed parameter between 100 and < 400
+	this.speed = (Math.random() * (400 - 100) + 100);
 	
-	// property to set random x-axis start position between > -350 and -100
-	this.startPos = (Math.random() * (-350 + 100) - 100);
+	// property to set random x-axis start position between > -250 and -100
+	this.startPos = (Math.random() * (-250 + 100) - 100);
 	
    	//property to specify enemy figure image
     this.sprite = 'images/enemy-bug.png';
@@ -34,7 +34,7 @@ Enemy.prototype.update = function(dt) {
 	//to set new random start position and new random speed
 	} else {
 		this.x = this.startPos;
-		this.speed = (Math.random() * (250 - 75) + 75);
+		this.speed = (Math.random() * (400 -100) + 100);
 	}
 	
 	//Statements to check collision. Check:
