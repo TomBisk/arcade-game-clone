@@ -46,6 +46,7 @@ Enemy.prototype.update = function(dt) {
 		this.x < player.x + 65) {
 			// then it is collision and reset player's position
 			player.resetPos();
+		
 	}
 };
 
@@ -104,7 +105,7 @@ Player.prototype.handleInput = function(pressedKey) {
 		// If true then reset player's position with time delay
 		if (this.y < 0) {
 			setTimeout(() => {
-				this.resetPos();
+				modalWin();
 			}, 300);
 		}
 	} else if (pressedKey === "right" && this.x < 400) {
@@ -138,3 +139,19 @@ document.addEventListener('keyup', function(e) {
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
+
+
+function modalWin() {
+	let href = "#modal-win";
+	window.open(href, "_self");
+}
+
+
+function contGame() {
+	window.open("#close", "_self"); // to close popup
+	player.resetPos();
+	
+}
+// Event listener for continue button, to call continue()
+const contButton = document.getElementById("continue");
+contButton.addEventListener("click", contGame);
