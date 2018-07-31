@@ -30,28 +30,27 @@ Enemy.prototype.update = function(dt) {
 	// Statement to update enemy position
 	if (this.x < 510) {
 		this.x += this.speed * dt;
-	// Statement for enemies beyond the game-field
+	// Statement for enemies beyond the game-field 
 	//to set new random start position and new random speed
 	} else {
 		this.x = this.startPos;
 		this.speed = (Math.random() * (250 - 75) + 75);
 	}
 	
-	//Statements to check collision:
+	//Statements to check collision. Check :
 	    //if the enemy and player are on the same line
 	if (this.y + 5 === player.y &&
 	    // and if the enemy (80 = his length) collides with player from the front
 		this.x + 80 > player.x &&  
 		// and if the enemy is not behind player (65 = player's width)
 		this.x < player.x + 65) {
-			// then it is collision
-			alert("collision");
+			// then it is collision and reset player's position
+			player.x = 202;
+			player.y = 400;
 	}
 };
 
 	
-
-
 // Draw the enemy on the screen, required method for game
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
