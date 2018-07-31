@@ -76,10 +76,10 @@ function Player(x, y) {
 	this.stage = 0;
 	//property to store all available characters
 	this.playerChar = ["images/char-boy.png",
-		"images/char-cat-girl.png",
-		"images/char-horn-girl.png",
-		"images/char-pink-girl.png",
-		"images/char-princess-girl.png"];
+		               "images/char-cat-girl.png",
+		               "images/char-horn-girl.png",
+		               "images/char-pink-girl.png",
+		               "images/char-princess-girl.png"];
 	// property to specify player's character
 	this.sprite = "images/char-boy.png";
 }
