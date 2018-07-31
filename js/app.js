@@ -18,7 +18,7 @@ function Enemy(x, y, startPos, speed) {
 	
    	//property to specify enemy figure image
     this.sprite = 'images/enemy-bug.png';
-};
+}
 
 /**
 * Method to update enemy's position
@@ -55,7 +55,7 @@ Enemy.prototype.update = function(dt) {
 Player.prototype.resetPos = function() {
 			this.x = 202;
 			this.y = 400;	
-}
+};
 	
 /**
 * Method to draw the enemy on the screen
@@ -79,10 +79,10 @@ function Player(x, y) {
 		"images/char-cat-girl.png",
 		"images/char-horn-girl.png",
 		"images/char-pink-girl.png",
-		"images/char-princess-girl.png"]
+		"images/char-princess-girl.png"];
 	// property to specify player's character
-	this.sprite = "images/char-boy.png"
-};
+	this.sprite = "images/char-boy.png";
+}
 
 /**
 *
@@ -159,7 +159,7 @@ document.addEventListener('keyup', function(e) {
 * Function shows popup when player reaches the water
 */
 function modalWin() {
-	let href = "#modal-win";
+	const href = "#modal-win";
 	window.open(href, "_self");
 }
 
