@@ -37,7 +37,7 @@ Enemy.prototype.update = function(dt) {
 		this.speed = (Math.random() * (250 - 75) + 75);
 	}
 	
-	//Statements to check collision. Check :
+	//Statements to check collision. Check:
 	    //if the enemy and player are on the same line
 	if (this.y + 5 === player.y &&
 	    // and if the enemy (80 = his length) collides with player from the front
@@ -46,7 +46,6 @@ Enemy.prototype.update = function(dt) {
 		this.x < player.x + 65) {
 			// then it is collision and reset player's position
 			player.resetPos();
-		
 	}
 };
 
@@ -58,7 +57,9 @@ Player.prototype.resetPos = function() {
 			this.y = 400;	
 }
 	
-// Draw the enemy on the screen, required method for game
+/**
+* Method to draw the enemy on the screen
+*/
 Enemy.prototype.render = function() {
     ctx.drawImage(Resources.get(this.sprite), this.x, this.y);
 };
@@ -127,7 +128,7 @@ const allEnemies = [ new Enemy(this.startPos, 63, this.speed),
 const player = new Player(202, 400);
 
 // This listens for key presses and sends the keys to your
-// Player.handleInput() method. You don't need to modify this.
+// Player.handleInput() method.
 document.addEventListener('keyup', function(e) {
     var allowedKeys = {
         37: 'left',
@@ -135,28 +136,36 @@ document.addEventListener('keyup', function(e) {
         39: 'right',
         40: 'down'
     };
-	console.log(typeof allowedKeys[e.keyCode]);
 
     player.handleInput(allowedKeys[e.keyCode]);
 });
 
 
+/**
+* Function shows popup when player reaches the water
+*/
 function modalWin() {
 	let href = "#modal-win";
 	window.open(href, "_self");
 }
 
-
+/**
+* Function closes win-popup and reset player's position to start/continue the game
+*/
 function contGame() {
-	window.open("#close", "_self"); // to close popup
+	window.open("#close", "_self");
 	player.resetPos();	
 }
 
+/**
+* Function closes start-popup
+*/
+
 function startGame() {
-	window.open("#close", "_self"); // to close popup
+	window.open("#close", "_self");
 }
 
-// Event listener for continue button, to call continue()
+// Event listener for continue button, to call contGame()
 const contButton = document.getElementById("continue");
 contButton.addEventListener("click", contGame);
 

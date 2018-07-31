@@ -161,6 +161,10 @@ var Engine = (function(global) {
      * those sorts of things. It's only called once by the init() method.
      */
     function reset() {
+		
+		/* Function to show start-popup
+		 * 
+		 */
         (function modalStart() {
   			let href = "#modal-start";
   			window.open(href, "_self");
