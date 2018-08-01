@@ -3,9 +3,15 @@
 ## Udacity Front-End Nanodegree Program project [4/8] (July 2018)
 
 * Project based on art assets and provided game engine - [source repository](https://github.com/udacity/frontend-nanodegree-arcade-game)
+### How to run
+* To play online:
+  * open [The Cockroach Invasion](https://tombisk.github.io/arcade-game-clone),
+* To play locally:
+  * download [game package](https://github.com/TomBisk/arcade-game-clone/archive/master.zip),
+  * unzip and run index.html
+---
 
 ### How to play
-* open [The Cockroach Invasion](https://tombisk.github.io/arcade-game-clone) and start the game,
 * use the arrow keys to move the player figure,
 * avoid the cockroaches and follow the water
 * if You made it - play next stage with new player's character
@@ -18,4 +24,4 @@
 * The Player starts in starting position
 * If player's figure collides with cockroach - the game restarts
 * If Player reaches the water - starts next stage with new character
-* If Player passes ale stages - the game is over and player can plays again
+* If Player passes all stages - the game is over and player can plays again
